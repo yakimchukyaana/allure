@@ -9,27 +9,25 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selectors.withText;
-import static com.codeborne.selenide.Selenide.*;
-import static io.qameta.allure.Allure.attachment;
+import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
 
 public class StepsTest {
 
-    private static final String REPOSITORY ="eroshenkoam/allure-example";
+    private static final String REPOSITORY = "eroshenkoam/allure-example";
     private static final int ISSUE = 80;
 
     @Test
-    @DisplayName("stepsTest")
-    public void stepsTest(){
+    @DisplayName("Check that issues page contains element with number #80")
+    public void stepsTest() {
 
         SelenideLogger.addListener("allure", new AllureSelenide());
 
-        step("Open main page", () ->{
+        step("Open main page", () -> {
             Selenide.open("https://github.com/");
-//            attachment("Source", webdriver().driver().source());
         });
 
-        step("Search for repository " + REPOSITORY, () ->{
+        step("Search for repository " + REPOSITORY, () -> {
             $(".search-input-container").click();
             $("#query-builder-test").setValue(REPOSITORY).pressEnter();
         });
@@ -42,13 +40,14 @@ public class StepsTest {
             $("#issues-tab").click();
         });
 
-        step("Check that isssue #" + ISSUE + " is available", () -> {
+        step("Check that issue #" + ISSUE + " is present", () -> {
             $(withText("#" + ISSUE)).should(Condition.exist);
         });
     }
 
     @Test
-    public void testAnnotatedStep(){
+    @DisplayName("Check with steps that issues page contains element with number #80")
+    public void testAnnotatedStep() {
 
         SelenideLogger.addListener("allure", new AllureSelenide());
 
@@ -59,26 +58,5 @@ public class StepsTest {
         steps.clickOnRepositoryLink(REPOSITORY);
         steps.openIssuesTab();
         steps.shouldSeeIssueWithNumber(ISSUE);
-    }
-
-    @Test
-    public void stepsTestWithAttachents(){
-        SelenideLogger.addListener("allure", new AllureSelenide());
-
-        step("Open main page", () ->{
-            Selenide.open("https://github.com/");
-            attachment("Source", webdriver().driver().source());
-        });
-
-    }
-
-    @Test
-    public void TestAnnotatedStepWithAttachments(){
-
-        SelenideLogger.addListener("allure", new AllureSelenide());
-        WebSteps steps = new WebSteps();
-
-        steps.openMainPage();
-        steps.takeScreenshot();
     }
 }
