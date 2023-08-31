@@ -1,0 +1,1 @@
+{"total":2,"items":[{"uid":"09935431abf227eb650d01dccf92cc19","name":"guru.qa.StepsTest","statistic":{"failed":0,"broken":0,"skipped":0,"passed":2,"unknown":0,"total":2}},{"uid":"5f2ba6435c43941b31d59a7f2aa483b7","name":"guru.qa.SelenideTest","statistic":{"failed":0,"broken":0,"skipped":0,"passed":1,"unknown":0,"total":1}}]}
