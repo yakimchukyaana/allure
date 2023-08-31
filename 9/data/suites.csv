@@ -1,0 +1,4 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"failed","Thu Aug 31 11:37:41 GMT 2023","Thu Aug 31 11:37:47 GMT 2023","5805","","guru.qa.StepsTest","","guru.qa.StepsTest","stepsTest","Check that issues page contains element with number #80",""
+"passed","Thu Aug 31 11:37:25 GMT 2023","Thu Aug 31 11:37:35 GMT 2023","10373","","guru.qa.SelenideTest","","guru.qa.SelenideTest","testIssueSearch","Check that issues page contains element with number #80",""
+"failed","Thu Aug 31 11:37:35 GMT 2023","Thu Aug 31 11:37:41 GMT 2023","5991","","guru.qa.StepsTest","","guru.qa.StepsTest","testAnnotatedStep","Check with steps that issues page contains element with number #80",""
